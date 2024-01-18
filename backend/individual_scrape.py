@@ -11,24 +11,29 @@ def individual_scraper(url, headers):
     recipe_title = soup.find(
         'h1', class_='heading-1').text
 
-    print(f'Recipe Title: {recipe_title}')
-
     # Recipe Image
     recipe_image = soup.find('img', alt=True)
 
-    print(f'Image is {recipe_image['src']}')
-    # for element in recipe_image:
-    #     print(element['src'])
+    # Recipe Description
+    recipe_description = soup.find(
+        'div', class_="editor-content mt-sm pr-xxs hidden-print").text
 
-    # Ingredients list - first grab the parent <ul>, then the descendant <li> items' text
+    # Recipe dictionary to be sent to front end
+    recipe_set = {'title': recipe_title,
+                  'image': recipe_image['src'], 'description': recipe_description, 'ingredients': [], 'method': []}
+
+    # Ingredients list - first grab the parent <ul>, then the descendant <li> items' text; append to dict
     ingredients_parent_ul = soup.find(
         'section', class_='recipe__ingredients col-12 mt-md col-lg-6').find_next('ul')
 
-    # ingredients_list = list(ingredients_parent_ul.descendants)
-
-    ingredients = []
-
     for li in ingredients_parent_ul.find_all('li'):
-        ingredients.append(li.text)
+        recipe_set['ingredients'].append(li.text)
 
-    print(f'Ingredients are: {ingredients}')
+    # Method list - grab parent <ul> and iterate over each <li> to grab <p>.text; append to dict
+    parent_method_ul = soup.find(
+        'section', class_="recipe__method-steps mb-lg col-12")
+
+    for li in parent_method_ul.find_all('li'):
+        recipe_set['method'].append(li.p.text)
+
+    return recipe_set

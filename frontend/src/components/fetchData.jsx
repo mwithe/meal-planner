@@ -1,5 +1,5 @@
-async function fetchData() {
-    const response = await fetch('http://127.0.0.1:5000/');
+async function fetchData(url) {
+    const response = await fetch(url);
     const data = await response.json();
     console.log(data);
     return data;

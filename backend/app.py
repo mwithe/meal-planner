@@ -13,7 +13,7 @@ category_data = category_scraper(url1, headers)
 # print(category_data)
 
 ##################### Individual Recipe ###################
-# url2 = 'https://www.bbcgoodfood.com/recipes/sausage-kale-gnocchi-one-pot'
+url2 = 'https://www.bbcgoodfood.com/recipes/'
 
 # individual_scraper(url2, headers)
 ###########################################################
@@ -31,4 +31,12 @@ CORS(app)
 @app.route('/')
 def get_data():
     data = category_data
+    return jsonify(data)
+
+
+@app.route('/api/data/<param>', methods=['GET'])
+def send(param):
+    url = url2 + param
+    data = individual_scraper(url, headers)
+    # result = {'data': f'Received parameter: {param}'}
     return jsonify(data)
