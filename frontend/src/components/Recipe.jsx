@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import fetchData from './fetchData';
 
+import RecipeIndividual from './RecipeIndividual';
+
 function RecipePage() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -36,9 +38,9 @@ function RecipePage() {
     return (
         <div>
             <h1>Recipe Page</h1>
-            <p>This is the recipe page content.</p>
-            <Link to="/">Go to Home Page</Link>
+            <Link to="/">Back</Link>
             <p>{data.description}</p>
+            <RecipeIndividual title={data.title} description={data.description} image={data.image} method={data.method} ingredients={data.ingredients} />
         </div>
     );
 }
