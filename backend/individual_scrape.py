@@ -18,9 +18,11 @@ def individual_scraper(url, headers):
     recipe_description = soup.find(
         'div', class_="editor-content mt-sm pr-xxs hidden-print").text
 
+    recipe_id = soup.find('div', class_='post recipe')['data-item-id']
+
     # Recipe dictionary to be sent to front end
     recipe_set = {'title': recipe_title,
-                  'image': recipe_image['src'], 'description': recipe_description, 'ingredients': [], 'method': []}
+                  'image': recipe_image['src'], 'description': recipe_description, 'id': recipe_id, 'ingredients': [], 'method': []}
 
     # Ingredients list - first grab the parent <ul>, then the descendant <li> items' text; append to dict
     ingredients_parent_ul = soup.find(
