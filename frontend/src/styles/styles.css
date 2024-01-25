@@ -1,0 +1,52 @@
+/* Recipe Card Home Page */
+* {
+    background-color: #3d3434;
+    color: white;
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-cart {
+    margin: 30px 30px 0px 0px;
+}
+
+.shopping-cart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 500px;
+    height: 500px;
+    background-color: lightblue;
+}
+
+.recipe-card {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.recipe-card p,
+h3 {
+    margin: 0;
+    padding: 0 5px;
+}
+
+
+.ind-top-half {
+    display: flex;
+    flex-direction: row;
+}
+
+.ind-bottom-half {
+    display: flex;
+    flex-direction: row;
+}
+
+.ind-ingredients {
+    min-width: 33%;
+}

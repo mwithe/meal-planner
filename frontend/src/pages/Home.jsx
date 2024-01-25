@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import RecipeCardLarge from './RecipeCardLarge';
-import fetchData from './fetchData';
+import RecipeCardLarge from '../components/RecipeCardLarge';
+import fetchData from '../components/fetchData';
 
 function HomePage() {
     const [data, setData] = useState(null);
@@ -25,7 +25,6 @@ function HomePage() {
 
         fetchDataAsync();
     }, [data]); // Adding 'data' as a dependency will trigger the effect only if 'data' changes
-    console.log(data);
 
     if (loading) {
         return <p>Loading...</p>;
@@ -33,14 +32,11 @@ function HomePage() {
 
     return (
         <div>
-            <h1>Home Page</h1>
-            <p>This is the home page content.</p>
             <Link to="/about">Go to About Page</Link> <br></br>
-            <Link to="/recipe">Go to Recipe Page</Link>
             {data.map((recipe) => (
-                <Link to={`/recipe/${recipe.link}`}>
+                <Link to={`/recipe/${recipe.link}`} key={recipe.id}>
                     <RecipeCardLarge
-                        key={recipe.id}
+                        id={recipe.id}
                         title={recipe.title}
                         imageSrc={recipe.image}
                         description={recipe.description}

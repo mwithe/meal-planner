@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/styles.css';
 
-const RecipeCardLarge = ({ title, description, imageSrc, rating }) => {
+const RecipeCardLarge = ({ id, title, description, imageSrc, rating }) => {
     return (
-        <div className='recipe-card'>
-            <img src={imageSrc} alt={title} className='card-image' />
+        <div className='recipe-card' key={id}>
+            <img src={imageSrc} alt={title} className='card-image' width={93} height={84} />
 
             <div className='card-content'>
                 <h3 className='recipe-title'>{title}</h3>

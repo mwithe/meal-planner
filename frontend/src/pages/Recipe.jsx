@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import fetchData from './fetchData';
+import fetchData from '../components/fetchData';
+import { useCart } from '../components/CartContext';
 
-import RecipeIndividual from './RecipeIndividual';
+import RecipeIndividual from '../components/RecipeIndividual';
 
 function RecipePage() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { cart, addToCart } = useCart();
+    console.log('Cart', cart)
 
     const { link } = useParams();
 
     const url = `http://127.0.0.1:5000/api/data/${link}`;
 
-
+    // Fetching content from backend API
     useEffect(() => {
         const fetchDataAsync = async () => {
             try {
@@ -29,18 +32,27 @@ function RecipePage() {
 
         fetchDataAsync();
     }, [data]); // Adding 'data' as a dependency will trigger the effect only if 'data' changes
-    console.log('DATA FE: ', data);
+
+
+    const handleAddToCart = (id, title, ingredients) => {
+        const isInCart = cart.some(recipe => recipe.id === id);
+
+        if (!isInCart) {
+            addToCart({ id, title, ingredients });
+        } else console.log('Recipe already in cart.')
+    }
+
 
     if (loading) {
         return <p>Loading...</p>;
-    }
+    };
+
 
     return (
         <div>
             <h1>Recipe Page</h1>
             <Link to="/">Back</Link>
-            <p>{data.description}</p>
-            <RecipeIndividual title={data.title} description={data.description} image={data.image} method={data.method} ingredients={data.ingredients} />
+            <RecipeIndividual recipe={data} handleClick={handleAddToCart} />
         </div>
     );
 }
