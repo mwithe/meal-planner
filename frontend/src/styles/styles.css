@@ -3,17 +3,33 @@
     background-color: #3d3434;
     color: white;
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background-color: green;
     display: flex;
     justify-content: space-between;
+    max-width: 968px;
+    margin: auto;
 }
 
 .header-cart {
     margin: 30px 30px 0px 0px;
 }
 
+/* Homepage */
+.container {
+    max-width: 968px;
+    margin: 80.667px auto 0 auto;
+}
+
+/* Openned cart */
 .shopping-cart {
     position: absolute;
     top: 0;

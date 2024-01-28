@@ -44,13 +44,16 @@ function RecipePage() {
 
 
     if (loading) {
-        return <p>Loading...</p>;
+        return (
+            <div className='container loading'>
+                <p>Loading...</p>
+            </div>
+        )
     };
 
 
     return (
-        <div>
-            <h1>Recipe Page</h1>
+        <div className='container'>
             <Link to="/">Back</Link>
             <RecipeIndividual recipe={data} handleClick={handleAddToCart} />
         </div>

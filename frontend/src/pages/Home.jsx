@@ -26,12 +26,14 @@ function HomePage() {
         fetchDataAsync();
     }, [data]); // Adding 'data' as a dependency will trigger the effect only if 'data' changes
 
+    console.log(data)
+
     if (loading) {
         return <p>Loading...</p>;
     }
 
     return (
-        <div>
+        <div className='container'>
             <Link to="/about">Go to About Page</Link> <br></br>
             {data.map((recipe) => (
                 <Link to={`/recipe/${recipe.link}`} key={recipe.id}>

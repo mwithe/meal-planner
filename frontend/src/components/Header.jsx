@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from './CartContext';
 import ShoppingCart from './ShoppingCart';
+import SearchBar from './SearchBar';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-const Header = () => {
+const Header = ({ onSearch }) => {
     const { cart } = useCart();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -19,6 +20,9 @@ const Header = () => {
         <div className="header">
             <div>
                 <h1>Recipe Scraper</h1>
+            </div>
+            <div>
+                <SearchBar onSearch={onSearch} />
             </div>
             <div>
                 <ShoppingCart visibility={isOpen} recipes={cart} onClose={openCart} />
