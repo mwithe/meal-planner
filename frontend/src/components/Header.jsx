@@ -24,9 +24,9 @@ const Header = ({ onSearch }) => {
             <div>
                 <SearchBar onSearch={onSearch} />
             </div>
-            <div>
+            <div className='cart-icon-field'>
                 <ShoppingCart visibility={isOpen} recipes={cart} onClose={openCart} />
-                <button onClick={openCart} className='button-nav'>
+                <button onClick={openCart} className='button-nav-cart'>
                     <FontAwesomeIcon icon={faShoppingCart} className="header-cart" />
                     <span className="header-cart">{cart.length}</span>
                 </button>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const SearchBar = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -9,8 +11,9 @@ const SearchBar = ({ onSearch }) => {
     };
 
     return (
-        <div>
-            <input
+        <div className='search-bar-container'>
+            <FontAwesomeIcon icon={faMagnifyingGlass} className='search-bar-icon' />
+            <input className='search-bar-input'
                 type='text'
                 placeholder='Search for a meal...'
                 value={searchQuery}
