@@ -1,12 +1,6 @@
 # Recipe Scraper
 This personal project is an extension of a university assignment, exploring new technologies. Utilising the Python library BeautifulSoup to scrape recipes from a web page, the website allows users to add the ingredients of a recipe to their shopping list.
 
-
-![scraper1](https://github.com/mwithe/meal-planner/assets/112362724/fdee745e-e9ee-4629-a5ac-115d8eed18b0)
-
-![scraper2](https://github.com/mwithe/meal-planner/assets/112362724/6ecb4811-b19e-4289-8699-db140d0a956f)
-
-
 ### To be implemented:
  - User auth
  - Database for storing user lists
@@ -21,3 +15,11 @@ This personal project is an extension of a university assignment, exploring new 
 5. cd ..\frontend\
 6. npm run dev
 7. visit http://localhost:5173/
+
+### Home Page
+![scraper1](https://github.com/mwithe/meal-planner/assets/112362724/fdee745e-e9ee-4629-a5ac-115d8eed18b0)
+
+### Searching
+![scraper2](https://github.com/mwithe/meal-planner/assets/112362724/6ecb4811-b19e-4289-8699-db140d0a956f)
+
+
