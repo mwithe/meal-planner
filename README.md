@@ -16,7 +16,7 @@ This personal project is an extension of a university assignment, exploring new 
 6. npm run dev
 7. visit http://localhost:5173/
 
-### Home Page
+### Recipe Page
 ![scraper1](https://github.com/mwithe/meal-planner/assets/112362724/fdee745e-e9ee-4629-a5ac-115d8eed18b0)
 
 ### Searching
